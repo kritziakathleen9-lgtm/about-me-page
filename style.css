@@ -1,0 +1,323 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(74, 130, 180);
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+}
+
+/* =========================
+   CONTENEDOR PRINCIPAL
+========================= */
+
+.contenedor {
+    max-width: 2500px;
+    margin: 30px auto;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, auto);
+
+    grid-template-areas:
+        "nav nav nav"
+        "contenido contenido sidebar"
+        "bloque1 bloque2 bloque2"
+        "footer footer footer";
+}
+
+/* =========================
+   NAV
+========================= */
+
+nav {
+    background-color: crimson;
+    color: black;
+    grid-area: nav;
+    padding: 30px;
+    border-radius: 10px;
+    font-size: 30px;
+    text-align: center;
+}
+
+/* =========================
+   CONTENIDO
+========================= */
+
+.contenido {
+    background-color: antiquewhite;
+    padding: 20px;
+    border-radius: 10px;
+    grid-area: contenido;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: rgb(214, 205, 42);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(188, 111, 12);
+    padding: 30px;
+    border-radius: 15px;
+}
+
+/* =========================
+   BLOQUES
+========================= */
+
+.bloque {
+    color: rgb(70, 38, 1);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+#bloque1 {
+    grid-area: bloque1;
+    background-color: chocolate;
+}
+
+#bloque2 {
+    grid-area: bloque2;
+    background-color: coral;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background-color: darkgray;
+    grid-area: footer;
+    padding: 40px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* =========================
+   TÍTULOS Y TEXTO
+========================= */
+
+h2 {
+    text-align: center;
+    font-size: 40px;
+    margin: 30px auto;
+}
+
+p {
+    font-size: 30px;
+    line-height: 1.5;
+}
+
+li {
+    margin: 20px 0 20px 50px;
+}
+
+/* =========================
+   IMÁGENES
+========================= */
+
+.photo,
+#profile-img {
+    border-radius: 10px;
+    border: 4px solid #010101;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.photo {
+    width: 350px;
+}
+
+#profile-img {
+    width: 600px;
+    margin: 150px auto;
+}
+
+/* Imagen ampliada con JavaScript */
+
+.imagen-grande {
+    transform: scale(1.5);
+}
+
+/* =========================
+   BOTÓN MODO OSCURO
+========================= */
+
+#modo-oscuro {
+    margin-top: 20px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#modo-oscuro:hover {
+    transform: scale(1.05);
+}
+
+/* =========================
+   MODO OSCURO
+========================= */
+
+body.modo-oscuro {
+    background-color: #121212;
+    color: white;
+}
+
+body.modo-oscuro .contenido {
+    background-color: #242424;
+    color: white;
+}
+
+body.modo-oscuro .sidebar {
+    background-color: #333333;
+    color: white;
+}
+
+body.modo-oscuro #bloque1 {
+    background-color: #4a2c1a;
+    color: white;
+}
+
+body.modo-oscuro #bloque2 {
+    background-color: #5a3025;
+    color: white;
+}
+
+body.modo-oscuro footer {
+    background-color: #222222;
+    color: white;
+}
+
+/* =========================
+   DISEÑO PARA MÓVIL
+========================= */
+
+@media screen and (max-width: 768px) {
+
+    /* Fondo de la página */
+    body {
+        background-color: black;
+        color: white;
+        font-size: 18px;
+    }
+
+    /* Grid de una sola columna */
+    .contenedor {
+        width: 95%;
+        margin: 15px auto;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "nav"
+            "contenido"
+            "sidebar"
+            "bloque1"
+            "bloque2"
+            "footer";
+        gap: 12px;
+    }
+
+    /* NAV */
+    nav {
+        padding: 20px 10px;
+    }
+
+    nav h1 {
+        font-size: 30px;
+    }
+
+    /* CONTENIDO */
+    .contenido {
+        padding: 15px;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+        padding: 20px 15px;
+    }
+
+    /* BLOQUES */
+    .bloque {
+        padding: 15px;
+    }
+
+    /* TÍTULOS */
+    h2 {
+        font-size: 25px;
+        margin: 15px auto;
+    }
+
+    /* PÁRRAFOS */
+    p {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+
+    /* LISTAS */
+    li {
+        margin: 10px 0 10px 25px;
+        font-size: 18px;
+    }
+
+    /* IMÁGENES */
+    .photo,
+    #profile-img {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        margin: 20px auto;
+    }
+
+    /* FOOTER */
+    footer {
+        padding: 25px 15px;
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    /* BOTÓN */
+    #modo-oscuro {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+
+    /* MODO OSCURO EN MÓVIL */
+    body.modo-oscuro {
+        background-color: black;
+        color: white;
+    }
+
+    body.modo-oscuro .contenido,
+    body.modo-oscuro .sidebar,
+    body.modo-oscuro #bloque1,
+    body.modo-oscuro #bloque2,
+    body.modo-oscuro footer {
+        background-color: #222;
+        color: white;
+    }
+}
